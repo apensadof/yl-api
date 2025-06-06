@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\Uuid;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -34,8 +35,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'datetime')]
     private ?\DateTimeInterface $updated_at = null;
 
+    #[ORM\Column(type: 'string', length: 36, unique: true)]
+    private ?string $uuid = null;
+
     public function __construct()
     {
+        $this->uuid = Uuid::uuid4()->toString();
         $this->created_at = new \DateTime();
         $this->updated_at = new \DateTime();
     }
@@ -142,10 +147,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // Nothing to erase
     }
 
+    public function getUuid(): string
+    {
+        return $this->uuid;
+    }
+
+    
     public function toArray(): array
     {
         return [
-            'id' => $this->id,
+            'uuid' => $this->uuid,
             'name' => $this->name,
             'email' => $this->email,
             'role' => $this->role,

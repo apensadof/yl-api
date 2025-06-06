@@ -52,7 +52,7 @@ class AuthController extends AbstractController
         }
 
         $payload = [
-            'user_id' => $user->getId(),
+            'user_uuid' => $user->getUuid(),
             'email' => $user->getEmail(),
             'iat' => time(),
             'exp' => time() + (24 * 60 * 60) // 24 hours
@@ -81,7 +81,7 @@ class AuthController extends AbstractController
 
         try {
             $decoded = JWT::decode($token, new Key($this->jwtSecret, 'HS256'));
-            $user = $this->userRepository->find($decoded->user_id);
+            $user = $this->userRepository->findOneBy(['uuid' => $decoded->user_uuid]);
 
             if (!$user) {
                 return $this->json([
@@ -110,7 +110,7 @@ class AuthController extends AbstractController
 
         try {
             $decoded = JWT::decode($token, new Key($this->jwtSecret, 'HS256'));
-            return $this->userRepository->find($decoded->user_id);
+            return $this->userRepository->findOneBy(['uuid' => $decoded->user_uuid]);
         } catch (\Exception $e) {
             return null;
         }
