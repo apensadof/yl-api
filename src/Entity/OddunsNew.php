@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\OddunRepository;
+use App\Repository\OddunsNewRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: OddunRepository::class)]
-#[ORM\Table(name: 'odduns')]
-class Oddun
+#[ORM\Entity(repositoryClass: OddunsNewRepository::class)]
+#[ORM\Table(name: 'odduns_new')]
+class OddunsNew
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -24,10 +24,7 @@ class Oddun
     private ?string $alt_names = null;
 
     #[ORM\Column(type: 'text')]
-    private ?string $nace = null;
-
-    #[ORM\Column(type: 'text')]
-    private ?string $frases = null;
+    private ?string $refranes = null;
 
     #[ORM\Column(type: 'text')]
     private ?string $ire = null;
@@ -36,19 +33,7 @@ class Oddun
     private ?string $osogbo = null;
 
     #[ORM\Column(type: 'text')]
-    private ?string $bin = null;
-
-    #[ORM\Column(type: 'text', length: 4294967295)]
-    private ?string $diceifa = null;
-
-    #[ORM\Column(type: 'text', length: 4294967295)]
-    private ?string $patakies = null;
-
-    #[ORM\Column(type: 'text')]
     private ?string $historia = null;
-
-    #[ORM\Column(type: 'text')]
-    private ?string $refranes = null;
 
     public function getId(): ?int
     {
@@ -88,25 +73,14 @@ class Oddun
         return $this;
     }
 
-    public function getNace(): ?string
+    public function getRefranes(): ?string
     {
-        return $this->nace;
+        return $this->refranes;
     }
 
-    public function setNace(string $nace): self
+    public function setRefranes(string $refranes): self
     {
-        $this->nace = $nace;
-        return $this;
-    }
-
-    public function getFrases(): ?string
-    {
-        return $this->frases;
-    }
-
-    public function setFrases(string $frases): self
-    {
-        $this->frases = $frases;
+        $this->refranes = $refranes;
         return $this;
     }
 
@@ -132,39 +106,6 @@ class Oddun
         return $this;
     }
 
-    public function getBin(): ?string
-    {
-        return $this->bin;
-    }
-
-    public function setBin(string $bin): self
-    {
-        $this->bin = $bin;
-        return $this;
-    }
-
-    public function getDiceifa(): ?string
-    {
-        return $this->diceifa;
-    }
-
-    public function setDiceifa(string $diceifa): self
-    {
-        $this->diceifa = $diceifa;
-        return $this;
-    }
-
-    public function getPatakies(): ?string
-    {
-        return $this->patakies;
-    }
-
-    public function setPatakies(string $patakies): self
-    {
-        $this->patakies = $patakies;
-        return $this;
-    }
-
     public function getHistoria(): ?string
     {
         return $this->historia;
@@ -176,17 +117,6 @@ class Oddun
         return $this;
     }
 
-    public function getRefranes(): ?string
-    {
-        return $this->refranes;
-    }
-
-    public function setRefranes(string $refranes): self
-    {
-        $this->refranes = $refranes;
-        return $this;
-    }
-
     public function toArray(): array
     {
         return [
@@ -194,15 +124,10 @@ class Oddun
             'uid' => $this->uid,
             'name' => $this->name,
             'alt_names' => $this->alt_names,
-            'nace' => $this->nace,
-            'frases' => $this->frases,
+            'refranes' => $this->refranes,
             'ire' => $this->ire,
             'osogbo' => $this->osogbo,
-            'bin' => $this->bin,
-            'diceifa' => $this->diceifa,
-            'patakies' => $this->patakies,
             'historia' => $this->historia,
-            'refranes' => $this->refranes,
         ];
     }
 } 

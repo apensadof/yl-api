@@ -6,22 +6,26 @@ use App\Repository\ComplementoOddunRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ComplementoOddunRepository::class)]
+#[ORM\Table(name: 'complemento_oddun')]
 class ComplementoOddun
 {
     #[ORM\Id]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: 'text', nullable: true)]
+    #[ORM\Column(length: 34, nullable: true)]
+    private ?string $oddun = null;
+
+    #[ORM\Column(length: 1570, nullable: true)]
     private ?string $principios_metafisicos = null;
 
-    #[ORM\Column(type: 'text', nullable: true)]
+    #[ORM\Column(length: 1426, nullable: true)]
     private ?string $resumen_osode = null;
 
-    #[ORM\Column(type: 'text', nullable: true)]
+    #[ORM\Column(length: 8540, nullable: true)]
     private ?string $rezos = null;
 
-    #[ORM\Column(type: 'text', nullable: true)]
+    #[ORM\Column(length: 4502, nullable: true)]
     private ?string $proverbios_totem_dualidad = null;
 
     #[ORM\Column(type: 'text', nullable: true)]
@@ -35,6 +39,17 @@ class ComplementoOddun
     public function setId(int $id): self
     {
         $this->id = $id;
+        return $this;
+    }
+
+    public function getOddun(): ?string
+    {
+        return $this->oddun;
+    }
+
+    public function setOddun(?string $oddun): self
+    {
+        $this->oddun = $oddun;
         return $this;
     }
 
@@ -96,6 +111,7 @@ class ComplementoOddun
     public function toArray(): array
     {
         return [
+            'oddun' => $this->oddun,
             'principios_metafisicos' => $this->principios_metafisicos,
             'resumen_osode' => $this->resumen_osode,
             'rezos' => $this->rezos,
