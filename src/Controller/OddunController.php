@@ -10,7 +10,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Oddun;
 use App\Entity\ComplementoOddun;
 
-#[Route('/api', name: 'api_')]
 class OddunController extends AbstractController
 {
     private $entityManager;
@@ -20,20 +19,18 @@ class OddunController extends AbstractController
         $this->entityManager = $entityManager;
     }
 
-    #[Route('/oddun', name: 'oddun_get', methods: ['POST'])]
+    #[Route('/oddun/{bin}', name: 'oddun_get', methods: ['GET'])]
     public function getOddun(Request $request): JsonResponse
     {
-        $content = json_decode($request->getContent(), true);
+        $bin = $request->get('bin');
         
-        if (!isset($content['bin'])) {
+        if (!$bin) {
             return $this->json([
                 'status' => 400,
                 'message' => 'Incomplete request'
             ], 400);
         }
 
-        $bin = $content['bin'];
-        
         $oddunRepository = $this->entityManager->getRepository(Oddun::class);
         $oddun = $oddunRepository->findOneBy(['bin' => $bin]);
 
