@@ -153,7 +153,7 @@ class AhijadoController extends AbstractController
 
         try {
             $decoded = JWT::decode($token, new Key($this->jwtSecret, 'HS256'));
-            return $this->userRepository->find($decoded->user_id);
+            return $this->userRepository->findOneBy(['uuid' => $decoded->user_uuid]);
         } catch (\Exception $e) {
             return null;
         }

@@ -28,7 +28,7 @@ class EmailService
 
         $email = new Mail();
         $email->setFrom($this->fromEmail, $this->fromName);
-        $email->setSubject('Restablecer Contraseña - Yorubas Latinos');
+        $email->setSubject('Restablecer contraseña');
         $email->addTo($toEmail, $toName);
 
         $resetUrl = $this->frontendUrl . '/reset-password?token=' . $resetToken;
@@ -65,7 +65,7 @@ class EmailService
         <head>
             <meta charset='utf-8'>
             <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-            <title>Restablecer Contraseña - Yorubas Latinos</title>
+            <title>Restablecer contraseña</title>
             <style>
                 * { margin: 0; padding: 0; box-sizing: border-box; }
                 body { 
@@ -310,7 +310,7 @@ class EmailService
         return "
 📖 YORUBAS LATINOS
 ==================
-Restablecimiento de Contraseña
+Restablecimiento de contraseña
 
 Hola {$name},
 
