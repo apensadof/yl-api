@@ -1,0 +1,1192 @@
+[
+    {
+      "nombre": "Obatalá",
+      "otros_nombres": ["Obbatalá", "Obatalá Ayáguna"],
+      "dominio": "Creador de la humanidad, pureza, sabiduría",
+      "color": "Blanco",
+      "número": 8,
+      "atributos": ["Justicia", "Paz", "Sabiduría"],
+      "sincretismo": "Nuestra Señora de las Mercedes",
+      "día": "24-09"
+    },
+    {
+      "nombre": "Yemayá",
+      "otros_nombres": ["Yemoja", "Iemanjá"],
+      "dominio": "Océanos, maternidad, protección",
+      "color": "Azul marino y blanco",
+      "número": 7,
+      "atributos": ["Maternidad", "Protección", "Fertilidad"],
+      "sincretismo": "Virgen de Regla",
+      "día": "07-09"
+    },
+    {
+      "nombre": "Oshún",
+      "otros_nombres": ["Oxum", "Ochún"],
+      "dominio": "Ríos, amor, belleza, diplomacia",
+      "color": "Amarillo",
+      "número": 5,
+      "atributos": ["Amor", "Belleza", "Riqueza"],
+      "sincretismo": "Virgen de la Caridad del Cobre",
+      "día": "08-09"
+    },
+    {
+      "nombre": "Shango",
+      "otros_nombres": ["Changó", "Sango"],
+      "dominio": "Truenos, relámpagos, justicia, virilidad",
+      "color": "Rojo y blanco",
+      "número": 6,
+      "atributos": ["Fuerza", "Pasión", "Justicia"],
+      "sincretismo": "Santa Bárbara",
+      "día": "12-04"
+    },
+    {
+      "nombre": "Oya",
+      "otros_nombres": ["Yansa", "Oyá"],
+      "dominio": "Vientos, tormentas, transformación",
+      "color": "Marrón, rojo vino, morado",
+      "número": 9,
+      "atributos": ["Cambio", "Misterio", "Guerrera"],
+      "sincretismo": "Santa Teresa de Jesús",
+      "día": "10-15"
+    },
+    {
+      "nombre": "Elegguá",
+      "otros_nombres": ["Elegbá", "Laroye"],
+      "dominio": "Caminos, destinos, mensajero, portero",
+      "color": "Rojo y negro",
+      "número": 3,
+      "atributos": ["Apertura de caminos", "Protección", "Guardián"],
+      "sincretismo": "Santo Niño de Atocha",
+      "día": "01-06"
+    },
+    {
+      "nombre": "Ogun",
+      "otros_nombres": ["Ogún", "Oggún"],
+      "dominio": "Hierro, guerra, tecnología",
+      "color": "Verde y negro",
+      "número": 3,
+      "atributos": ["Trabajo", "Fuerza", "Tecnología"],
+      "sincretismo": "San Pedro",
+      "día": "06-29"
+    },
+    {
+      "nombre": "Osain",
+      "otros_nombres": ["Osanyin", "Ossain"],
+      "dominio": "Plantas medicinales, sanación",
+      "color": "Verde",
+      "número": 7,
+      "atributos": ["Sabiduría", "Curación", "Naturaleza"],
+      "sincretismo": "San José",
+      "día": "03-19"
+    },
+    {
+      "nombre": "Babalu-Ayé",
+      "otros_nombres": ["Omolu", "Asojano"],
+      "dominio": "Enfermedades, sanación, epidemias",
+      "color": "Marrón, morado",
+      "número": 17,
+      "atributos": ["Compasión", "Resiliencia", "Sanación"],
+      "sincretismo": "San Lázaro",
+      "día": "12-17"
+    },
+    {
+      "nombre": "Orunmila",
+      "otros_nombres": ["Orula", "Ifá"],
+      "dominio": "Sabiduría, adivinación, destino",
+      "color": "Verde y amarillo",
+      "número": 16,
+      "atributos": ["Conocimiento", "Clarividencia", "Destino"],
+      "sincretismo": "San Francisco de Asís",
+      "día": "10-04"
+    },
+    {
+      "nombre": "Ochosi",
+      "otros_nombres": ["Oshosi", "Oxóssi"],
+      "dominio": "Caza, justicia divina, bosques",
+      "color": "Azul y amarillo",
+      "número": 3,
+      "atributos": ["Justicia", "Puntería", "Protección"],
+      "sincretismo": "San Norberto",
+      "día": "06-06"
+    },
+    {
+      "nombre": "Inle",
+      "otros_nombres": ["Erinle", "Inlé"],
+      "dominio": "Medicina, pesca, ríos",
+      "color": "Azul turquesa y amarillo",
+      "número": 7,
+      "atributos": ["Sanación", "Abundancia", "Protección"],
+      "sincretismo": "San Rafael Arcángel",
+      "día": "09-29"
+    },
+    {
+      "nombre": "Aggayú",
+      "otros_nombres": ["Aggayú Solá", "Argayú"],
+      "dominio": "Volcanes, desiertos, paternidad",
+      "color": "Rojo y marrón",
+      "número": 9,
+      "atributos": ["Fuerza paternal", "Protección", "Firmeza"],
+      "sincretismo": "San Cristóbal",
+      "día": "07-25"
+    },
+    {
+      "nombre": "Orisha Oko",
+      "otros_nombres": ["Oko", "Orisha-Oko"],
+      "dominio": "Agricultura, fertilidad de la tierra",
+      "color": "Rosa y azul claro",
+      "número": 7,
+      "atributos": ["Fertilidad", "Justicia", "Trabajo"],
+      "sincretismo": "San Isidro Labrador",
+      "día": "05-15"
+    },
+    {
+      "nombre": "Ibeji",
+      "otros_nombres": ["Los Jimaguas", "Ibeyis"],
+      "dominio": "Gemelos, niños, alegría",
+      "color": "Todos los colores",
+      "número": 2,
+      "atributos": ["Inocencia", "Alegría", "Travesura"],
+      "sincretismo": "San Cosme y San Damián",
+      "día": "09-27"
+    },
+    {
+      "nombre": "Nana Buruku",
+      "otros_nombres": ["Naná", "Nanã"],
+      "dominio": "Ancestros, pantanos, transformación",
+      "color": "Blanco, azul y lila",
+      "número": 7,
+      "atributos": ["Sabiduría ancestral", "Transformación", "Memoria"],
+      "sincretismo": "Santa Ana",
+      "día": "07-26"
+    },
+    {
+      "nombre": "Obba",
+      "otros_nombres": ["Oba", "Obbá"],
+      "dominio": "Matrimonio, fidelidad, lagos",
+      "color": "Rosa y amarillo",
+      "número": 8,
+      "atributos": ["Fidelidad", "Sacrificio", "Dignidad"],
+      "sincretismo": "Santa Rita de Casia",
+      "día": "05-22"
+    },
+    {
+      "nombre": "Yewa",
+      "otros_nombres": ["Yeguá", "Llewa"],
+      "dominio": "Cementerios, virginidad, soledad",
+      "color": "Rosa y blanco",
+      "número": 11,
+      "atributos": ["Pureza", "Soledad", "Misterio"],
+      "sincretismo": "Nuestra Señora de Montserrat",
+      "día": "04-27"
+    },
+    {
+      "nombre": "Olokun",
+      "otros_nombres": ["Olókun", "Olocún"],
+      "dominio": "Profundidades del océano, riqueza",
+      "color": "Azul marino y plateado",
+      "número": 7,
+      "atributos": ["Sabiduría profunda", "Riqueza", "Misterio"],
+      "sincretismo": "Virgen de la Candelaria",
+      "día": "02-02"
+    },
+    {
+      "nombre": "Dadá",
+      "otros_nombres": ["Dada Bayani", "Dadá"],
+      "dominio": "Niños recién nacidos, vegetación",
+      "color": "Blanco, azul y rosa",
+      "número": 20,
+      "atributos": ["Protección infantil", "Crecimiento", "Ternura"],
+      "sincretismo": "San Ramón Nonato",
+      "día": "08-31"
+    },
+    {
+      "nombre": "Oshumare",
+      "otros_nombres": ["Oxumaré", "Ochumaré"],
+      "dominio": "Arcoíris, serpiente, renovación",
+      "color": "Todos los colores del arcoíris",
+      "número": 7,
+      "atributos": ["Renovación", "Transformación", "Continuidad"],
+      "sincretismo": "San Bartolomé",
+      "día": "08-24"
+    },
+    {
+      "nombre": "Aje Shaluga",
+      "otros_nombres": ["Ajé", "Cowrie"],
+      "dominio": "Riqueza, prosperidad, comercio",
+      "color": "Dorado y verde",
+      "número": 8,
+      "atributos": ["Prosperidad", "Comercio", "Abundancia"],
+      "sincretismo": "San Judas Tadeo",
+      "día": "10-28"
+    },
+    {
+      "nombre": "Ori",
+      "otros_nombres": ["Orí", "Eleda"],
+      "dominio": "Destino personal, cabeza, intuición",
+      "color": "Blanco",
+      "número": 1,
+      "atributos": ["Destino", "Intuición", "Individualidad"],
+      "sincretismo": "Ángel de la Guarda",
+      "día": "Variable (día de nacimiento)"
+    },
+    {
+      "nombre": "Ayao",
+      "otros_nombres": ["Ayaó", "Aya"],
+      "dominio": "Aire, vientos suaves, atmósfera",
+      "color": "Rosa y blanco",
+      "número": 8,
+      "atributos": ["Delicadeza", "Sutileza", "Comunicación"],
+      "sincretismo": "Virgen de la Candelaria",
+      "día": "02-02"
+    },
+    {
+      "nombre": "Iroko",
+      "otros_nombres": ["Arorá", "Iroco"],
+      "dominio": "Tiempo, árboles sagrados, longevidad",
+      "color": "Marrón y verde",
+      "número": 8,
+      "atributos": ["Longevidad", "Sabiduría", "Estabilidad"],
+      "sincretismo": "San Silvestre",
+      "día": "12-31"
+    },
+    {
+      "nombre": "Korin",
+      "otros_nombres": ["Corin", "Korín"],
+      "dominio": "Enfermedades infantiles, protección de niños",
+      "color": "Amarillo y blanco",
+      "número": 4,
+      "atributos": ["Protección infantil", "Sanación", "Cuidado"],
+      "sincretismo": "San Lázaro",
+      "día": "12-17"
+    },
+    {
+      "nombre": "Eshu",
+      "otros_nombres": ["Exú", "Echu", "Bara"],
+      "dominio": "Encrucijadas, comunicación, dinamismo, intercambio",
+      "color": "Rojo y negro",
+      "número": 21,
+      "atributos": ["Dinamismo", "Comunicación", "Intercambio de energías"],
+      "sincretismo": "Ánima Sola",
+      "día": "Lunes (día variable)"
+    },
+    {
+      "nombre": "Boromu",
+      "otros_nombres": ["Boromú", "Bromu"],
+      "dominio": "Viento del norte, messenger de Olofi",
+      "color": "Rojo, blanco y azul",
+      "número": 10,
+      "atributos": ["Velocidad", "Mensaje divino", "Cambio"],
+      "sincretismo": "San José",
+      "día": "03-19"
+    },
+    {
+      "nombre": "Borosia",
+      "otros_nombres": ["Borosía", "Iboru"],
+      "dominio": "Viento del sur, estaciones",
+      "color": "Amarillo y azul",
+      "número": 12,
+      "atributos": ["Estabilidad", "Equilibrio", "Armonía"],
+      "sincretismo": "Nuestra Señora del Carmen",
+      "día": "07-16"
+    },
+    {
+      "nombre": "Yembo",
+      "otros_nombres": ["Yembó", "Yemoja Mayelewo"],
+      "dominio": "Océanos antiguos, madre primordial",
+      "color": "Azul claro y blanco",
+      "número": 7,
+      "atributos": ["Maternidad ancestral", "Sabiduría antigua", "Protección"],
+      "sincretismo": "Virgen de los Remedios",
+      "día": "09-08"
+    },
+    {
+      "nombre": "Oduduwa",
+      "otros_nombres": ["Odudúa", "Oddúa"],
+      "dominio": "Tierra, ancestros, fundaciones",
+      "color": "Blanco y negro",
+      "número": 8,
+      "atributos": ["Fundación", "Ancestralidad", "Poder ancestral"],
+      "sincretismo": "Jesús Crucificado",
+      "día": "Viernes Santo"
+    },
+    {
+      "nombre": "Olofi",
+      "otros_nombres": ["Olofin", "Olodumare"],
+      "dominio": "Dios supremo, creador universal",
+      "color": "Blanco puro",
+      "número": 1,
+      "atributos": ["Omnipotencia", "Creación", "Perfección"],
+      "sincretismo": "Santísima Trinidad",
+      "día": "Domingo de Resurrección"
+    },
+    {
+      "nombre": "Olorun",
+      "otros_nombres": ["Olodumare", "Eleda"],
+      "dominio": "Sol, luz divina, vida",
+      "color": "Amarillo dorado",
+      "número": 16,
+      "atributos": ["Iluminación", "Vida", "Energía"],
+      "sincretismo": "Jesús Resucitado",
+      "día": "Domingo"
+    },
+    {
+      "nombre": "Aganyu",
+      "otros_nombres": ["Aganjú", "Aggayú Kinká"],
+      "dominio": "Volcanes, lava, centro de la tierra",
+      "color": "Rojo intenso y marrón",
+      "número": 9,
+      "atributos": ["Fuerza telúrica", "Poder", "Intensidad"],
+      "sincretismo": "San Cristóbal",
+      "día": "07-25"
+    },
+    {
+      "nombre": "Shangó Obara",
+      "otros_nombres": ["Changó Obara", "Shangó Rey"],
+      "dominio": "Truenos celestiales, realeza divina",
+      "color": "Rojo y blanco con dorado",
+      "número": 6,
+      "atributos": ["Realeza", "Justicia divina", "Poder real"],
+      "sincretismo": "Santa Bárbara Bendita",
+      "día": "12-04"
+    },
+    {
+      "nombre": "Oshún Ibu Kole",
+      "otros_nombres": ["Ochún de los Ríos", "Oshún Sekesé"],
+      "dominio": "Ríos profundos, misterios del agua dulce",
+      "color": "Amarillo y azul",
+      "número": 5,
+      "atributos": ["Misterio", "Profundidad", "Seducción"],
+      "sincretismo": "Virgen de la Caridad",
+      "día": "08-09"
+    },
+    {
+      "nombre": "Yemayá Asesu",
+      "otros_nombres": ["Yemoja Asesu", "Yemayá de los Caracoles"],
+      "dominio": "Superficie del mar, espuma marina",
+      "color": "Azul claro y blanco",
+      "número": 7,
+      "atributos": ["Claridad", "Purificación", "Revelación"],
+      "sincretismo": "Virgen de Regla",
+      "día": "07-09"
+    },
+    {
+      "nombre": "Oyá Yansá",
+      "otros_nombres": ["Oya de los Vientos", "Yansá de las Tormentas"],
+      "dominio": "Huracanes, tornados, vientos destructivos",
+      "color": "Marrón oscuro y rojo vino",
+      "número": 9,
+      "atributos": ["Destrucción necesaria", "Renovación", "Fuerza"],
+      "sincretismo": "Santa Teresa",
+      "día": "10-15"
+    },
+    {
+      "nombre": "Obatalá Ayaguna",
+      "otros_nombres": ["Obbatalá Guerrero", "Obatalá Joven"],
+      "dominio": "Justicia guerrera, pureza combativa",
+      "color": "Blanco y plata",
+      "número": 8,
+      "atributos": ["Justicia activa", "Guerra justa", "Pureza"],
+      "sincretismo": "Nuestra Señora de las Mercedes",
+      "día": "24-09"
+    },
+    {
+      "nombre": "Obatalá Oshaguiñan",
+      "otros_nombres": ["Obbatalá Anciano", "Obatalá de la Sabiduría"],
+      "dominio": "Sabiduría ancestral, paz profunda",
+      "color": "Blanco inmaculado",
+      "número": 8,
+      "atributos": ["Sabiduría", "Paz", "Serenidad"],
+      "sincretismo": "Santísimo Sacramento",
+      "día": "24-09"
+    },
+    {
+      "nombre": "Elegguá Laroye",
+      "otros_nombres": ["Laroye", "Elegbá Laroye"],
+      "dominio": "Caminos de la alegría, travesuras",
+      "color": "Rojo, negro y amarillo",
+      "número": 3,
+      "atributos": ["Alegría", "Travesura", "Astucia"],
+      "sincretismo": "Santo Niño de Atocha",
+      "día": "01-06"
+    },
+    {
+      "nombre": "Elegguá Alaketu",
+      "otros_nombres": ["Elegbá Rey", "Elegguá Real"],
+      "dominio": "Caminos reales, destinos nobles",
+      "color": "Rojo, negro y dorado",
+      "número": 21,
+      "atributos": ["Nobleza", "Realeza", "Destino"],
+      "sincretismo": "San Antonio de Padua",
+      "día": "06-13"
+    },
+    {
+      "nombre": "Ogún Chibiriki",
+      "otros_nombres": ["Oggún de los Metales", "Ogún Herrero"],
+      "dominio": "Forja, metalurgia, creación de herramientas",
+      "color": "Verde, negro y plateado",
+      "número": 3,
+      "atributos": ["Creación", "Transformación", "Habilidad"],
+      "sincretismo": "San Pedro",
+      "día": "06-29"
+    },
+    {
+      "nombre": "Ogún Arere",
+      "otros_nombres": ["Oggún de los Caminos", "Ogún Viajero"],
+      "dominio": "Vías de comunicación, transporte",
+      "color": "Verde y negro",
+      "número": 7,
+      "atributos": ["Movimiento", "Progreso", "Comunicación"],
+      "sincretismo": "San Juan Bautista",
+      "día": "06-24"
+    },
+    {
+      "nombre": "Oshosi Ibualama",
+      "otros_nombres": ["Ochosi de la Justicia", "Oshosi Cazador"],
+      "dominio": "Justicia implacable, castigo divino",
+      "color": "Azul marino y amarillo",
+      "número": 3,
+      "atributos": ["Justicia", "Castigo", "Precisión"],
+      "sincretismo": "San Norberto",
+      "día": "06-06"
+    },
+    {
+      "nombre": "Inle Ayé",
+      "otros_nombres": ["Erinlé", "Inlé de la Medicina"],
+      "dominio": "Medicina natural, sanación con plantas",
+      "color": "Azul turquesa, amarillo y verde",
+      "número": 7,
+      "atributos": ["Sanación", "Medicina", "Conocimiento"],
+      "sincretismo": "San Rafael Arcángel",
+      "día": "09-29"
+    },
+    {
+      "nombre": "Osain Agueddo",
+      "otros_nombres": ["Osanyin", "Ossain de los Montes"],
+      "dominio": "Secretos de las plantas, magia verde",
+      "color": "Verde intenso",
+      "número": 7,
+      "atributos": ["Secretos", "Magia natural", "Curación"],
+      "sincretismo": "San Silvestre",
+      "día": "12-31"
+    },
+    {
+      "nombre": "Babalú Ayé Asojano",
+      "otros_nombres": ["Asojano", "Babalú de las Epidemias"],
+      "dominio": "Epidemias, enfermedades contagiosas",
+      "color": "Morado, marrón y negro",
+      "número": 17,
+      "atributos": ["Control de epidemias", "Sanación colectiva", "Misericordia"],
+      "sincretismo": "San Lázaro",
+      "día": "12-17"
+    },
+    {
+      "nombre": "Yewa Oshagriñan",
+      "otros_nombres": ["Yeguá de los Muertos", "Llewa"],
+      "dominio": "Comunicación con los muertos, médium",
+      "color": "Rosa, blanco y morado",
+      "número": 11,
+      "atributos": ["Mediumnidad", "Pureza", "Conexión espiritual"],
+      "sincretismo": "Nuestra Señora de Montserrat",
+      "día": "04-27"
+    },
+    {
+      "nombre": "Oba Nani",
+      "otros_nombres": ["Obbá Nani", "Oba de los Lagos"],
+      "dominio": "Lagos sagrados, sacrificio femenino",
+      "color": "Rosa pálido y amarillo",
+      "número": 8,
+      "atributos": ["Sacrificio", "Fidelidad", "Amor verdadero"],
+      "sincretismo": "Santa Rita de Casia",
+      "día": "05-22"
+    },
+    {
+      "nombre": "Olokun Su",
+      "otros_nombres": ["Olókun de las Profundidades", "Olocún"],
+      "dominio": "Abismos marinos, misterios oceánicos",
+      "color": "Azul muy oscuro y plateado",
+      "número": 7,
+      "atributos": ["Misterio profundo", "Sabiduría oceánica", "Poder ancestral"],
+      "sincretismo": "Virgen de la Candelaria",
+      "día": "02-02"
+    },
+    {
+      "nombre": "Dadá Bayani",
+      "otros_nombres": ["Dada de los Niños", "Dadá Ibañez"],
+      "dominio": "Protección de recién nacidos, parto",
+      "color": "Blanco, rosa y azul claro",
+      "número": 20,
+      "atributos": ["Protección natal", "Maternidad", "Inocencia"],
+      "sincretismo": "San Ramón Nonato",
+      "día": "08-31"
+    },
+    {
+      "nombre": "Nana Burukú Salako",
+      "otros_nombres": ["Naná Burukú", "Nanã de los Ancestros"],
+      "dominio": "Sabiduría ancestral, memoria colectiva",
+      "color": "Lila, blanco y azul",
+      "número": 7,
+      "atributos": ["Memoria ancestral", "Tradición", "Sabiduría antigua"],
+      "sincretismo": "Santa Ana",
+      "día": "07-26"
+    },
+    {
+      "nombre": "Ajé Shalunga",
+      "otros_nombres": ["Ajé Cowrie", "Aje de la Prosperidad"],
+      "dominio": "Abundancia material, comercio próspero",
+      "color": "Dorado, verde y blanco",
+      "número": 8,
+      "atributos": ["Abundancia", "Prosperidad", "Fortuna"],
+      "sincretismo": "San Judas Tadeo",
+      "día": "10-28"
+    },
+    {
+      "nombre": "Oshumare Bomi",
+      "otros_nombres": ["Oxumaré", "Oshumare de la Continuidad"],
+      "dominio": "Ciclos eternos, renovación constante",
+      "color": "Todos los colores en degradé",
+      "número": 7,
+      "atributos": ["Continuidad", "Ciclos", "Renovación eterna"],
+      "sincretismo": "San Bartolomé",
+      "día": "08-24"
+    },
+    {
+      "nombre": "Ayao Lamurú",
+      "otros_nombres": ["Ayaó", "Aya de los Vientos"],
+      "dominio": "Brisas suaves, aire puro",
+      "color": "Rosa suave y blanco",
+      "número": 8,
+      "atributos": ["Suavidad", "Pureza del aire", "Delicadeza"],
+      "sincretismo": "Virgen de la Candelaria",
+      "día": "02-02"
+    },
+    {
+      "nombre": "Iroko Alamo",
+      "otros_nombres": ["Arorá", "Iroco del Tiempo"],
+      "dominio": "Tiempo sagrado, eternidad",
+      "color": "Marrón, verde y dorado",
+      "número": 8,
+      "atributos": ["Eternidad", "Paciencia", "Resistencia"],
+      "sincretismo": "San Silvestre",
+      "día": "12-31"
+    },
+    {
+      "nombre": "Korin Melli",
+      "otros_nombres": ["Corin", "Korín de los Niños"],
+      "dominio": "Enfermedades infantiles, protección de la infancia",
+      "color": "Amarillo suave y blanco",
+      "número": 4,
+      "atributos": ["Protección infantil", "Salud de niños", "Ternura"],
+      "sincretismo": "San Lázaro",
+      "día": "12-17"
+    },
+    {
+      "nombre": "Boromu Ekún",
+      "otros_nombres": ["Boromú del Norte", "Bromu"],
+      "dominio": "Vientos del norte, mensajes divinos",
+      "color": "Rojo, blanco y azul",
+      "número": 10,
+      "atributos": ["Velocidad", "Mensaje", "Cambio rápido"],
+      "sincretismo": "San José",
+      "día": "03-19"
+    },
+    {
+      "nombre": "Borosia Okana",
+      "otros_nombres": ["Borosía del Sur", "Iboru"],
+      "dominio": "Vientos del sur, equilibrio estacional",
+      "color": "Amarillo, azul y verde",
+      "número": 12,
+      "atributos": ["Equilibrio", "Estabilidad", "Armonía"],
+      "sincretismo": "Nuestra Señora del Carmen",
+      "día": "07-16"
+    },
+    {
+      "nombre": "Yembo Akuaro",
+      "otros_nombres": ["Yembó Antigua", "Yemoja Mayelewo"],
+      "dominio": "Océanos primordiales, maternidad ancestral",
+      "color": "Azul muy claro y blanco",
+      "número": 7,
+      "atributos": ["Maternidad primordial", "Origen", "Protección ancestral"],
+      "sincretismo": "Virgen de los Remedios",
+      "día": "09-08"
+    },
+    {
+      "nombre": "Aggayú Solá",
+      "otros_nombres": ["Argayú", "Aggayú del Desierto"],
+      "dominio": "Desiertos, sequías, padre protector",
+      "color": "Rojo tierra y marrón",
+      "número": 9,
+      "atributos": ["Protección paternal", "Resistencia", "Fortaleza"],
+      "sincretismo": "San Cristóbal",
+      "día": "07-25"
+    },
+    {
+      "nombre": "Orisha Oko Ibú",
+      "otros_nombres": ["Oko de los Campos", "Orisha-Oko"],
+      "dominio": "Campos cultivados, cosechas abundantes",
+      "color": "Rosa, azul y blanco",
+      "número": 7,
+      "atributos": ["Abundancia", "Fertilidad", "Trabajo honrado"],
+      "sincretismo": "San Isidro Labrador",
+      "día": "05-15"
+    },
+    {
+      "nombre": "Ibeji Taúo",
+      "otros_nombres": ["Ibeyis", "Jimaguas Dorados"],
+      "dominio": "Gemelos divinos, dualidad sagrada",
+      "color": "Dorado y plateado",
+      "número": 2,
+      "atributos": ["Dualidad", "Complementariedad", "Equilibrio"],
+      "sincretismo": "San Cosme y San Damián",
+      "día": "09-27"
+    },
+    {
+      "nombre": "Ori Até",
+      "otros_nombres": ["Orí Personal", "Eleda"],
+      "dominio": "Destino individual, conciencia personal",
+      "color": "Blanco puro",
+      "número": 1,
+      "atributos": ["Individualidad", "Destino personal", "Conciencia"],
+      "sincretismo": "Ángel de la Guarda",
+      "día": "Variable (fecha de nacimiento)"
+    },
+    {
+      "nombre": "Eshu Laroye",
+      "otros_nombres": ["Exú Laroye", "Bara Laroye"],
+      "dominio": "Comunicación alegre, intercambio festivo",
+      "color": "Rojo, negro y amarillo",
+      "número": 21,
+      "atributos": ["Comunicación festiva", "Alegría", "Intercambio"],
+      "sincretismo": "Ánima Sola",
+      "día": "Lunes"
+    },
+    {
+      "nombre": "Eshu Bi",
+      "otros_nombres": ["Exú Bi", "Echu del Nacimiento"],
+      "dominio": "Nacimientos, nuevos comienzos",
+      "color": "Rojo, negro y blanco",
+      "número": 3,
+      "atributos": ["Nuevos comienzos", "Nacimiento", "Oportunidades"],
+      "sincretismo": "San Antonio",
+      "día": "Lunes"
+    },
+    {
+      "nombre": "Ikú",
+      "otros_nombres": ["La Muerte", "Ikú Lobi"],
+      "dominio": "Muerte, transición, transformación final",
+      "color": "Negro y blanco",
+      "número": 9,
+      "atributos": ["Transición", "Transformación", "Inevitable"],
+      "sincretismo": "La Muerte (sin santo específico)",
+      "día": "Viernes"
+    },
+    {
+      "nombre": "Arun",
+      "otros_nombres": ["Enfermedad", "Arun Malé"],
+      "dominio": "Enfermedades, dolencias, purificación",
+      "color": "Gris y negro",
+      "número": 8,
+      "atributos": ["Purificación", "Enseñanza", "Humildad"],
+      "sincretismo": "Job (personaje bíblico)",
+      "día": "Variable"
+    },
+    {
+      "nombre": "Ofo",
+      "otros_nombres": ["Pérdida", "Ofo Ashé"],
+      "dominio": "Pérdidas, lecciones, desprendimiento",
+      "color": "Marrón oscuro",
+      "número": 7,
+      "atributos": ["Desprendimiento", "Enseñanza", "Humildad"],
+      "sincretismo": "San Francisco de Asís",
+      "día": "Variable"
+    },
+    {
+      "nombre": "Egun",
+      "otros_nombres": ["Egúngún", "Ancestros"],
+      "dominio": "Espíritus ancestrales, muertos venerados",
+      "color": "Blanco, negro y morado",
+      "número": 9,
+      "atributos": ["Sabiduría ancestral", "Protección", "Guía"],
+      "sincretismo": "Ánimas del Purgatorio",
+      "día": "02-11 (Día de los Muertos)"
+    },
+    {
+      "nombre": "Orishaoko Adifafun",
+      "otros_nombres": ["Oko Mayor", "Orisha de la Tierra"],
+      "dominio": "Tierra fértil, matrimonios estables",
+      "color": "Rosa intenso y azul",
+      "número": 7,
+      "atributos": ["Estabilidad", "Fertilidad matrimonial", "Justicia"],
+      "sincretismo": "San Isidro",
+      "día": "05-15"
+    },
+    {
+      "nombre": "Olosas",
+      "otros_nombres": ["Olosa", "Señora de las Lagunas"],
+      "dominio": "Lagunas, lagos, aguas estancadas",
+      "color": "Azul verdoso y blanco",
+      "número": 7,
+      "atributos": ["Reflexión", "Quietud", "Misterio"],
+      "sincretismo": "Virgen de la Merced",
+      "día": "24-09"
+    },
+    {
+      "nombre": "Yemayá Okoto",
+      "otros_nombres": ["Yemoja de los Caracoles", "Yemayá de la Espuma"],
+      "dominio": "Caracolas marinas, espuma del mar",
+      "color": "Azul y blanco nácar",
+      "número": 7,
+      "atributos": ["Revelación", "Claridad", "Purificación"],
+      "sincretismo": "Virgen de Regla",
+      "día": "07-09"
+    },
+    {
+      "nombre": "Yemayá Mayelewo",
+      "otros_nombres": ["Yemoja Mayelewo", "Yemayá de la Corona"],
+      "dominio": "Realeza marina, soberanía oceánica",
+      "color": "Azul real y dorado",
+      "número": 7,
+      "atributos": ["Realeza", "Majestuosidad", "Poder"],
+      "sincretismo": "Virgen de Regla",
+      "día": "07-09"
+    },
+    {
+      "nombre": "Oshún Yeyé Moro",
+      "otros_nombres": ["Ochún de los Espejos", "Oshún Vanidosa"],
+      "dominio": "Belleza, vanidad, espejos",
+      "color": "Amarillo dorado y plateado",
+      "número": 5,
+      "atributos": ["Belleza", "Seducción", "Autoestima"],
+      "sincretismo": "Virgen de la Caridad",
+      "día": "08-09"
+    },
+    {
+      "nombre": "Oshún Ibú Añá",
+      "otros_nombres": ["Ochún de los Tambores", "Oshún Danzarina"],
+      "dominio": "Danza, música, festividades",
+      "color": "Amarillo y coral",
+      "número": 5,
+      "atributos": ["Danza", "Música", "Celebración"],
+      "sincretismo": "Virgen de la Caridad",
+      "día": "08-09"
+    },
+    {
+      "nombre": "Shangó Obakoso",
+      "otros_nombres": ["Changó Rey", "Shangó de Oyó"],
+      "dominio": "Reino de Oyó, realeza terrenal",
+      "color": "Rojo real y dorado",
+      "número": 6,
+      "atributos": ["Realeza terrenal", "Justicia real", "Poder"],
+      "sincretismo": "Santa Bárbara",
+      "día": "12-04"
+    },
+    {
+      "nombre": "Shangó Gbonka",
+      "otros_nombres": ["Changó Guerrero", "Shangó Batallador"],
+      "dominio": "Batalla, guerra justa, victoria",
+      "color": "Rojo sangre y negro",
+      "número": 6,
+      "atributos": ["Guerra", "Victoria", "Valor"],
+      "sincretismo": "San Marcos",
+      "día": "04-25"
+    },
+    {
+      "nombre": "Oyá Igbale",
+      "otros_nombres": ["Oya de los Cementerios", "Yansá de los Muertos"],
+      "dominio": "Cementerios, comunicación con muertos",
+      "color": "Marrón, negro y blanco",
+      "número": 9,
+      "atributos": ["Comunicación póstuma", "Transformación", "Misterio"],
+      "sincretismo": "Santa Teresa",
+      "día": "10-15"
+    },
+    {
+      "nombre": "Orun",
+      "otros_nombres": ["Cielo", "Firmamento"],
+      "dominio": "Cielo, firmamento, espacio celestial",
+      "color": "Azul celeste y blanco",
+      "número": 9,
+      "atributos": ["Infinitud", "Expansión", "Elevación"],
+      "sincretismo": "El Cielo",
+      "día": "Domingo"
+    },
+    {
+      "nombre": "Ile",
+      "otros_nombres": ["Tierra", "Madre Tierra"],
+      "dominio": "Tierra, suelo, fundamento",
+      "color": "Marrón y verde",
+      "número": 4,
+      "atributos": ["Estabilidad", "Fertilidad", "Fundamento"],
+      "sincretismo": "Virgen de la Candelaria",
+      "día": "02-02"
+    },
+    {
+      "nombre": "Omi",
+      "otros_nombres": ["Agua", "Elemento Agua"],
+      "dominio": "Agua en todas sus formas",
+      "color": "Azul en todas sus tonalidades",
+      "número": 7,
+      "atributos": ["Fluidez", "Purificación", "Vida"],
+      "sincretismo": "Agua Bendita",
+      "día": "Variable"
+    },
+    {
+      "nombre": "Ina",
+      "otros_nombres": ["Fuego", "Elemento Fuego"],
+      "dominio": "Fuego, calor, energía ígnea",
+      "color": "Rojo, naranja y amarillo",
+      "número": 6,
+      "atributos": ["Pasión", "Transformación", "Energía"],
+      "sincretismo": "Espíritu Santo",
+      "día": "Domingo de Pentecostés"
+    },
+    {
+      "nombre": "Afefe",
+      "otros_nombres": ["Viento", "Aire"],
+      "dominio": "Viento, aire, respiración",
+      "color": "Blanco y azul claro",
+      "número": 8,
+      "atributos": ["Movimiento", "Respiración", "Comunicación"],
+      "sincretismo": "Espíritu Santo",
+      "día": "Variable"
+    },
+    {
+      "nombre": "Oke",
+      "otros_nombres": ["Montaña", "Cima"],
+      "dominio": "Montañas, alturas, elevación",
+      "color": "Gris y blanco",
+      "número": 8,
+      "atributos": ["Elevación", "Perspectiva", "Fortaleza"],
+      "sincretismo": "Monte Calvario",
+      "día": "Viernes Santo"
+    },
+    {
+      "nombre": "Odo",
+      "otros_nombres": ["Río", "Corriente"],
+      "dominio": "Ríos, corrientes, flujo",
+      "color": "Azul y verde",
+      "número": 7,
+      "atributos": ["Flujo", "Continuidad", "Renovación"],
+      "sincretismo": "Río Jordán",
+      "día": "06-01 (Bautismo de Jesús)"
+    },
+    {
+      "nombre": "Agbon",
+      "otros_nombres": ["Coco", "Sabiduría del Coco"],
+      "dominio": "Adivinación con coco, respuestas divinas",
+      "color": "Blanco y marrón",
+      "número": 4,
+      "atributos": ["Adivinación", "Respuestas", "Claridad"],
+      "sincretismo": "Oráculo divino",
+      "día": "Variable"
+    },
+    {
+      "nombre": "Oya Funke",
+      "otros_nombres": ["Oya del Mercado", "Yansá Comerciante"],
+      "dominio": "Mercados, comercio, intercambio",
+      "color": "Marrón, rojo y amarillo",
+      "número": 9,
+      "atributos": ["Comercio", "Intercambio", "Prosperidad"],
+      "sincretismo": "Santa Teresa",
+      "día": "10-15"
+    },
+    {
+      "nombre": "Ogun Onire",
+      "otros_nombres": ["Oggún de la Guerra", "Ogún Guerrero"],
+      "dominio": "Guerra, batalla, conflicto",
+      "color": "Verde, negro y rojo",
+      "número": 3,
+      "atributos": ["Guerra", "Valor", "Victoria"],
+      "sincretismo": "San Jorge",
+      "día": "04-23"
+    },
+    {
+      "nombre": "Ogun Alaguede",
+      "otros_nombres": ["Oggún Herrero", "Ogún de los Metales"],
+      "dominio": "Herrería, metales, forja",
+      "color": "Verde, negro y plateado",
+      "número": 7,
+      "atributos": ["Artesanía", "Creación", "Transformación"],
+      "sincretismo": "San Pedro",
+      "día": "06-29"
+    },
+    {
+      "nombre": "Ochosi Ode",
+      "otros_nombres": ["Oshosi Cazador", "Ochosi del Bosque"],
+      "dominio": "Caza, bosques, precisión",
+      "color": "Azul, amarillo y verde",
+      "número": 3,
+      "atributos": ["Precisión", "Paciencia", "Supervivencia"],
+      "sincretismo": "San Norberto",
+      "día": "06-06"
+    },
+    {
+      "nombre": "Orunla",
+      "otros_nombres": ["Orula", "Ifá"],
+      "dominio": "Oráculo de Ifá, destino supremo",
+      "color": "Verde y amarillo",
+      "número": 16,
+      "atributos": ["Sabiduría suprema", "Destino", "Conocimiento"],
+      "sincretismo": "San Francisco de Asís",
+      "día": "10-04"
+    },
+    {
+      "nombre": "Osanyin",
+      "otros_nombres": ["Ossain", "Osain"],
+      "dominio": "Plantas medicinales, hierbas sagradas",
+      "color": "Verde intenso",
+      "número": 7,
+      "atributos": ["Curación", "Conocimiento herbal", "Medicina"],
+      "sincretismo": "San Silvestre",
+      "día": "12-31"
+    },
+    {
+      "nombre": "Erinle",
+      "otros_nombres": ["Inle", "Erinlé"],
+      "dominio": "Medicina, ríos, pesca",
+      "color": "Azul turquesa y amarillo",
+      "número": 7,
+      "atributos": ["Sanación", "Abundancia acuática", "Medicina"],
+      "sincretismo": "San Rafael Arcángel",
+      "día": "09-29"
+    },
+    {
+      "nombre": "Orisha Ibeji",
+      "otros_nombres": ["Gemelos Sagrados", "Ibeyis"],
+      "dominio": "Gemelos, niños, alegría infantil",
+      "color": "Todos los colores",
+      "número": 2,
+      "atributos": ["Alegría", "Inocencia", "Juego"],
+      "sincretismo": "San Cosme y San Damián",
+      "día": "09-27"
+    },
+    {
+      "nombre": "Oduduwa Olofin",
+      "otros_nombres": ["Oddúa Rey", "Padre de los Yoruba"],
+      "dominio": "Origen yoruba, ancestro primordial",
+      "color": "Blanco, negro y rojo",
+      "número": 8,
+      "atributos": ["Ancestralidad", "Origen", "Fundación"],
+      "sincretismo": "Jesús Crucificado",
+      "día": "Viernes Santo"
+    },
+    {
+      "nombre": "Olosa",
+      "otros_nombres": ["Señora de las Lagunas", "Diosa Lacustre"],
+      "dominio": "Lagunas, lagos, aguas quietas",
+      "color": "Azul verdoso y blanco",
+      "número": 7,
+      "atributos": ["Quietud", "Reflexión", "Misterio"],
+      "sincretismo": "Virgen de la Merced",
+      "día": "24-09"
+    },
+    {
+      "nombre": "Nana Buruku",
+      "otros_nombres": ["Naná", "Abuela Primordial"],
+      "dominio": "Ancestros femeninos, sabiduría antigua",
+      "color": "Lila, blanco y azul",
+      "número": 7,
+      "atributos": ["Sabiduría ancestral", "Memoria", "Tradición"],
+      "sincretismo": "Santa Ana",
+      "día": "07-26"
+    },
+    {
+      "nombre": "Aje",
+      "otros_nombres": ["Bruja", "Hechicera"],
+      "dominio": "Brujería, poderes ocultos, transformación",
+      "color": "Negro, rojo y blanco",
+      "número": 13,
+      "atributos": ["Poder oculto", "Transformación", "Misterio"],
+      "sincretismo": "Sin sincretismo específico",
+      "día": "Variable"
+    },
+    {
+      "nombre": "Esu Odara",
+      "otros_nombres": ["Exú Odara", "Eshu Noble"],
+      "dominio": "Comunicación noble, mensajes importantes",
+      "color": "Rojo, negro y dorado",
+      "número": 21,
+      "atributos": ["Nobleza", "Comunicación elevada", "Respeto"],
+      "sincretismo": "San Miguel Arcángel",
+      "día": "09-29"
+    },
+    {
+      "nombre": "Esu Agongo Ogo",
+      "otros_nombres": ["Exú de los Caminos", "Eshu Viajero"],
+      "dominio": "Viajes largos, expediciones, exploración",
+      "color": "Rojo, negro y azul",
+      "número": 7,
+      "atributos": ["Viaje", "Exploración", "Aventura"],
+      "sincretismo": "Santiago Apóstol",
+      "día": "07-25"
+    },
+    {
+      "nombre": "Egun Oya",
+      "otros_nombres": ["Ancestros de Oya", "Muertos de Oya"],
+      "dominio": "Ancestros guerreros, espíritus combativos",
+      "color": "Marrón, negro y blanco",
+      "número": 9,
+      "atributos": ["Guerreros ancestrales", "Protección póstuma", "Valor"],
+      "sincretismo": "Ánimas del Purgatorio",
+      "día": "11-02"
+    },
+    {
+      "nombre": "Egun Shango",
+      "otros_nombres": ["Ancestros de Shango", "Reyes Muertos"],
+      "dominio": "Ancestros reales, reyes difuntos",
+      "color": "Rojo, blanco y dorado",
+      "número": 6,
+      "atributos": ["Realeza ancestral", "Justicia póstuma", "Poder real"],
+      "sincretismo": "Santos Reyes",
+      "día": "01-06"
+    },
+    {
+      "nombre": "Mawu",
+      "otros_nombres": ["Luna", "Deidad Lunar"],
+      "dominio": "Luna, ciclos lunares, feminidad cósmica",
+      "color": "Plateado y blanco",
+      "número": 28,
+      "atributos": ["Ciclos", "Feminidad", "Misterio nocturno"],
+      "sincretismo": "Virgen María",
+      "día": "Variable (luna llena)"
+    },
+    {
+      "nombre": "Lisa",
+      "otros_nombres": ["Sol", "Deidad Solar"],
+      "dominio": "Sol, luz solar, masculinidad cósmica",
+      "color": "Dorado y amarillo",
+      "número": 365,
+      "atributos": ["Luz", "Masculinidad", "Poder solar"],
+      "sincretismo": "Cristo Sol",
+      "día": "Domingo"
+    },
+    {
+      "nombre": "Osumare",
+      "otros_nombres": ["Oxumaré", "Serpiente Arcoíris"],
+      "dominio": "Arcoíris, serpiente cósmica, renovación",
+      "color": "Todos los colores",
+      "número": 7,
+      "atributos": ["Renovación", "Continuidad", "Transformación"],
+      "sincretismo": "San Bartolomé",
+      "día": "08-24"
+    },
+    {
+      "nombre": "Oshunmare",
+      "otros_nombres": ["Serpiente del Agua", "Dragón Acuático"],
+      "dominio": "Serpientes acuáticas, dragones de agua",
+      "color": "Azul, verde y plateado",
+      "número": 7,
+      "atributos": ["Fluidez", "Poder acuático", "Misterio"],
+      "sincretismo": "San Jorge",
+      "día": "04-23"
+    },
+    {
+      "nombre": "Babalu Aye",
+      "otros_nombres": ["Babalú Ayé", "San Lázaro"],
+      "dominio": "Enfermedades, lepra, purificación",
+      "color": "Morado, marrón y blanco",
+      "número": 17,
+      "atributos": ["Purificación", "Compasión", "Sanación"],
+      "sincretismo": "San Lázaro",
+      "día": "12-17"
+    },
+    {
+      "nombre": "Oba Koso",
+      "otros_nombres": ["Rey no se Ahorcó", "Shango Histórico"],
+      "dominio": "Historia de Shango, realeza yoruba",
+      "color": "Rojo real y dorado",
+      "número": 6,
+      "atributos": ["Historia real", "Legitimidad", "Poder ancestral"],
+      "sincretismo": "Santa Bárbara",
+      "día": "12-04"
+    },
+    {
+      "nombre": "Oshun Panchagara",
+      "otros_nombres": ["Ochún de los Cinco Ríos", "Oshún Pentagonal"],
+      "dominio": "Cinco ríos sagrados, geometría sagrada",
+      "color": "Amarillo con cinco tonos",
+      "número": 5,
+      "atributos": ["Geometría sagrada", "Ríos múltiples", "Perfección"],
+      "sincretismo": "Virgen de la Caridad",
+      "día": "08-09"
+    },
+    {
+      "nombre": "Yemoja Awoo",
+      "otros_nombres": ["Yemayá del Caracol", "Madre de los Caracoles"],
+      "dominio": "Caracolas, adivinación marina",
+      "color": "Azul nácar y blanco",
+      "número": 16,
+      "atributos": ["Adivinación", "Revelación", "Sabiduría marina"],
+      "sincretismo": "Virgen de Regla",
+      "día": "07-09"
+    },
+    {
+      "nombre": "Ogboni",
+      "otros_nombres": ["Sociedad Ogboni", "Ancianos Sabios"],
+      "dominio": "Justicia ancestral, tribunal divino",
+      "color": "Blanco, negro y rojo",
+      "número": 200,
+      "atributos": ["Justicia", "Sabiduría ancestral", "Tribunal"],
+      "sincretismo": "Consejo de Ancianos",
+      "día": "Variable"
+    },
+    {
+      "nombre": "Gelede",
+      "otros_nombres": ["Madres Ancestrales", "Poder Femenino"],
+      "dominio": "Poder femenino ancestral, fertilidad",
+      "color": "Blanco, rojo y negro",
+      "número": 201,
+      "atributos": ["Poder femenino", "Fertilidad", "Maternidad"],
+      "sincretismo": "Madres de la Iglesia",
+      "día": "Variable"
+    },
+    {
+      "nombre": "Egungun",
+      "otros_nombres": ["Mascarados Ancestrales", "Ancestros Enmascarados"],
+      "dominio": "Culto a ancestros, máscaras sagradas",
+      "color": "Multicolor según el ancestro",
+      "número": 999,
+      "atributos": ["Ancestralidad", "Tradición", "Conexión espiritual"],
+      "sincretismo": "Santos difuntos",
+      "día": "11-02"
+    },
+    {
+      "nombre": "Oro",
+      "otros_nombres": ["Justicia Ancestral", "Tribunal Sagrado"],
+      "dominio": "Justicia divina, castigo ancestral",
+      "color": "Rojo sangre y negro",
+      "número": 16,
+      "atributos": ["Justicia implacable", "Castigo", "Orden"],
+      "sincretismo": "Juicio Final",
+      "día": "Variable"
+    },
+    {
+      "nombre": "Ifa Olodumare",
+      "otros_nombres": ["Ifá Supremo", "Oráculo Universal"],
+      "dominio": "Sabiduría universal, destino cósmico",
+      "color": "Verde, amarillo y blanco",
+      "número": 256,
+      "atributos": ["Sabiduría cósmica", "Destino universal", "Conocimiento total"],
+      "sincretismo": "Sabiduría Divina",
+      "día": "Variable"
+    },
+    {
+      "nombre": "Obatala Obanla",
+      "otros_nombres": ["Obatalá Rey", "Rey de los Orishas"],
+      "dominio": "Realeza entre orishas, supremacía blanca",
+      "color": "Blanco real y plateado",
+      "número": 8,
+      "atributos": ["Realeza divina", "Pureza suprema", "Liderazgo"],
+      "sincretismo": "Cristo Rey",
+      "día": "Domingo de Cristo Rey"
+    },
+    {
+      "nombre": "Olodumare Olofi",
+      "otros_nombres": ["Dios Todopoderoso", "Supremo Absoluto"],
+      "dominio": "Divinidad absoluta, omnipresencia",
+      "color": "Luz pura sin color",
+      "número": 0,
+      "atributos": ["Omnipotencia", "Omnisciencia", "Omnipresencia"],
+      "sincretismo": "Dios Padre",
+      "día": "Todos los días"
+    }
+  ]

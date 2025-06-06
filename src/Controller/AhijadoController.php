@@ -4,8 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Ahijado;
 use App\Entity\User;
+use App\Entity\Orisha;
+use App\Entity\Ceremonia;
 use App\Repository\AhijadoRepository;
 use App\Repository\UserRepository;
+use App\Repository\OrishaRepository;
+use App\Repository\CeremoniaRepository;
 use App\Service\AuthService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,6 +23,8 @@ class AhijadoController extends AbstractController
     private $entityManager;
     private $ahijadoRepository;
     private $userRepository;
+    private $orishaRepository;
+    private $ceremoniaRepository;
     private $validator;
     private $authService;
 
@@ -26,12 +32,16 @@ class AhijadoController extends AbstractController
         EntityManagerInterface $entityManager,
         AhijadoRepository $ahijadoRepository,
         UserRepository $userRepository,
+        OrishaRepository $orishaRepository,
+        CeremoniaRepository $ceremoniaRepository,
         ValidatorInterface $validator,
         AuthService $authService
     ) {
         $this->entityManager = $entityManager;
         $this->ahijadoRepository = $ahijadoRepository;
         $this->userRepository = $userRepository;
+        $this->orishaRepository = $orishaRepository;
+        $this->ceremoniaRepository = $ceremoniaRepository;
         $this->validator = $validator;
         $this->authService = $authService;
     }
@@ -97,10 +107,194 @@ class AhijadoController extends AbstractController
             $ahijado->setInitiationDate(new \DateTime($data['initiationDate']));
         }
 
+        // Handle orisha cabeza
+        if (isset($data['orishaCabeza'])) {
+            $orishaCabeza = null;
+            if (is_numeric($data['orishaCabeza'])) {
+                $orishaCabeza = $this->orishaRepository->find($data['orishaCabeza']);
+            } else {
+                $orishaCabeza = $this->orishaRepository->findByNombre($data['orishaCabeza']);
+            }
+            if ($orishaCabeza) {
+                $ahijado->setOrishaCabeza($orishaCabeza);
+            }
+        }
+
+        // Handle orishas recibidos
+        if (isset($data['orishasRecibidos']) && is_array($data['orishasRecibidos'])) {
+            foreach ($data['orishasRecibidos'] as $orishaData) {
+                $orisha = null;
+                if (is_numeric($orishaData)) {
+                    $orisha = $this->orishaRepository->find($orishaData);
+                } else {
+                    $orisha = $this->orishaRepository->findByNombre($orishaData);
+                }
+                if ($orisha) {
+                    $ahijado->addOrishaRecibido($orisha);
+                }
+            }
+        }
+
+        // Handle ceremonias realizadas
+        if (isset($data['ceremoniasRealizadas']) && is_array($data['ceremoniasRealizadas'])) {
+            foreach ($data['ceremoniasRealizadas'] as $ceremoniaData) {
+                $ceremonia = null;
+                if (is_numeric($ceremoniaData)) {
+                    $ceremonia = $this->ceremoniaRepository->find($ceremoniaData);
+                } else {
+                    $ceremonia = $this->ceremoniaRepository->findByNombre($ceremoniaData);
+                }
+                if ($ceremonia) {
+                    $ahijado->addCeremoniaRealizada($ceremonia);
+                }
+            }
+        }
+
         $this->entityManager->persist($ahijado);
         $this->entityManager->flush();
 
         return $this->json($ahijado->toArray(), 201);
+    }
+
+    #[Route('/ahijados/{id}', name: 'ahijado_get', methods: ['GET'])]
+    public function getAhijado(Request $request, int $id): JsonResponse
+    {
+        try {
+            $user = $this->authService->requireAuth($request);
+        } catch (\Exception $e) {
+            return $this->json(['error' => 'No autorizado'], 401);
+        }
+
+        $ahijado = $this->ahijadoRepository->findOneBy(['id' => $id, 'user' => $user]);
+        
+        if (!$ahijado) {
+            return $this->json(['error' => 'Ahijado no encontrado'], 404);
+        }
+        
+        return $this->json($ahijado->toArray());
+    }
+
+    #[Route('/ahijados/{id}', name: 'ahijado_update', methods: ['PUT'])]
+    public function updateAhijado(Request $request, int $id): JsonResponse
+    {
+        try {
+            $user = $this->authService->requireAuth($request);
+        } catch (\Exception $e) {
+            return $this->json(['error' => 'No autorizado'], 401);
+        }
+
+        $ahijado = $this->ahijadoRepository->findOneBy(['id' => $id, 'user' => $user]);
+        
+        if (!$ahijado) {
+            return $this->json(['error' => 'Ahijado no encontrado'], 404);
+        }
+
+        $data = json_decode($request->getContent(), true);
+
+        // Update basic fields
+        if (isset($data['name'])) {
+            $ahijado->setName($data['name']);
+        }
+        if (isset($data['status'])) {
+            $ahijado->setStatus($data['status']);
+        }
+        if (isset($data['phone'])) {
+            $ahijado->setPhone($data['phone']);
+        }
+        if (isset($data['email'])) {
+            $ahijado->setEmail($data['email']);
+        }
+        if (isset($data['address'])) {
+            $ahijado->setAddress($data['address']);
+        }
+        if (isset($data['notes'])) {
+            $ahijado->setNotes($data['notes']);
+        }
+        if (isset($data['birthdate'])) {
+            $ahijado->setBirthdate(new \DateTime($data['birthdate']));
+        }
+        if (isset($data['initiationDate'])) {
+            $ahijado->setInitiationDate(new \DateTime($data['initiationDate']));
+        }
+
+        // Update orisha cabeza
+        if (isset($data['orishaCabeza'])) {
+            $orishaCabeza = null;
+            if (is_numeric($data['orishaCabeza'])) {
+                $orishaCabeza = $this->orishaRepository->find($data['orishaCabeza']);
+            } else {
+                $orishaCabeza = $this->orishaRepository->findByNombre($data['orishaCabeza']);
+            }
+            $ahijado->setOrishaCabeza($orishaCabeza);
+        }
+
+        // Update orishas recibidos
+        if (isset($data['orishasRecibidos']) && is_array($data['orishasRecibidos'])) {
+            // Clear existing orishas
+            foreach ($ahijado->getOrishasRecibidos() as $orisha) {
+                $ahijado->removeOrishaRecibido($orisha);
+            }
+            
+            // Add new orishas
+            foreach ($data['orishasRecibidos'] as $orishaData) {
+                $orisha = null;
+                if (is_numeric($orishaData)) {
+                    $orisha = $this->orishaRepository->find($orishaData);
+                } else {
+                    $orisha = $this->orishaRepository->findByNombre($orishaData);
+                }
+                if ($orisha) {
+                    $ahijado->addOrishaRecibido($orisha);
+                }
+            }
+        }
+
+        // Update ceremonias realizadas
+        if (isset($data['ceremoniasRealizadas']) && is_array($data['ceremoniasRealizadas'])) {
+            // Clear existing ceremonias
+            foreach ($ahijado->getCeremoniasRealizadas() as $ceremonia) {
+                $ahijado->removeCeremoniaRealizada($ceremonia);
+            }
+            
+            // Add new ceremonias
+            foreach ($data['ceremoniasRealizadas'] as $ceremoniaData) {
+                $ceremonia = null;
+                if (is_numeric($ceremoniaData)) {
+                    $ceremonia = $this->ceremoniaRepository->find($ceremoniaData);
+                } else {
+                    $ceremonia = $this->ceremoniaRepository->findByNombre($ceremoniaData);
+                }
+                if ($ceremonia) {
+                    $ahijado->addCeremoniaRealizada($ceremonia);
+                }
+            }
+        }
+
+        $ahijado->setUpdatedAt(new \DateTime());
+        $this->entityManager->flush();
+
+        return $this->json($ahijado->toArray());
+    }
+
+    #[Route('/ahijados/{id}', name: 'ahijado_delete', methods: ['DELETE'])]
+    public function deleteAhijado(Request $request, int $id): JsonResponse
+    {
+        try {
+            $user = $this->authService->requireAuth($request);
+        } catch (\Exception $e) {
+            return $this->json(['error' => 'No autorizado'], 401);
+        }
+
+        $ahijado = $this->ahijadoRepository->findOneBy(['id' => $id, 'user' => $user]);
+        
+        if (!$ahijado) {
+            return $this->json(['error' => 'Ahijado no encontrado'], 404);
+        }
+
+        $this->entityManager->remove($ahijado);
+        $this->entityManager->flush();
+
+        return $this->json(['message' => 'Ahijado eliminado exitosamente']);
     }
 
     #[Route('/ahijados/search', name: 'ahijados_search', methods: ['GET'])]

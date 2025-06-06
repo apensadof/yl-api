@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AhijadoRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AhijadoRepository::class)]
@@ -48,10 +50,24 @@ class Ahijado
     #[ORM\Column(type: 'datetime')]
     private ?\DateTimeInterface $updated_at = null;
 
+    #[ORM\ManyToOne(targetEntity: Orisha::class, inversedBy: 'ahijados')]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?Orisha $orishaCabeza = null;
+
+    #[ORM\ManyToMany(targetEntity: Orisha::class, inversedBy: 'ahijadosQueLoRecibieron')]
+    #[ORM\JoinTable(name: 'ahijado_orisha')]
+    private Collection $orishasRecibidos;
+
+    #[ORM\ManyToMany(targetEntity: Ceremonia::class, inversedBy: 'ahijados')]
+    #[ORM\JoinTable(name: 'ahijado_ceremonia')]
+    private Collection $ceremoniasRealizadas;
+
     public function __construct()
     {
         $this->created_at = new \DateTime();
         $this->updated_at = new \DateTime();
+        $this->orishasRecibidos = new ArrayCollection();
+        $this->ceremoniasRealizadas = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -188,6 +204,65 @@ class Ahijado
         return $this;
     }
 
+    public function getOrishaCabeza(): ?Orisha
+    {
+        return $this->orishaCabeza;
+    }
+
+    public function setOrishaCabeza(?Orisha $orishaCabeza): self
+    {
+        $this->orishaCabeza = $orishaCabeza;
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Orisha>
+     */
+    public function getOrishasRecibidos(): Collection
+    {
+        return $this->orishasRecibidos;
+    }
+
+    public function addOrishaRecibido(Orisha $orisha): self
+    {
+        if (!$this->orishasRecibidos->contains($orisha)) {
+            $this->orishasRecibidos->add($orisha);
+        }
+
+        return $this;
+    }
+
+    public function removeOrishaRecibido(Orisha $orisha): self
+    {
+        $this->orishasRecibidos->removeElement($orisha);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Ceremonia>
+     */
+    public function getCeremoniasRealizadas(): Collection
+    {
+        return $this->ceremoniasRealizadas;
+    }
+
+    public function addCeremoniaRealizada(Ceremonia $ceremonia): self
+    {
+        if (!$this->ceremoniasRealizadas->contains($ceremonia)) {
+            $this->ceremoniasRealizadas->add($ceremonia);
+        }
+
+        return $this;
+    }
+
+    public function removeCeremoniaRealizada(Ceremonia $ceremonia): self
+    {
+        $this->ceremoniasRealizadas->removeElement($ceremonia);
+
+        return $this;
+    }
+
     public function toArray(): array
     {
         return [
@@ -200,6 +275,9 @@ class Ahijado
             'email' => $this->email,
             'address' => $this->address,
             'notes' => $this->notes,
+            'orishaCabeza' => $this->orishaCabeza?->toArray(),
+            'orishasRecibidos' => array_map(fn($orisha) => $orisha->toArray(), $this->orishasRecibidos->toArray()),
+            'ceremoniasRealizadas' => array_map(fn($ceremonia) => $ceremonia->toArray(), $this->ceremoniasRealizadas->toArray()),
             'createdAt' => $this->created_at?->format(\DateTime::ISO8601),
             'updatedAt' => $this->updated_at?->format(\DateTime::ISO8601),
         ];
