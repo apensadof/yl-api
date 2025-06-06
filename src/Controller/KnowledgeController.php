@@ -5,48 +5,29 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Repository\KnowledgeRepository;
 use App\Repository\KnowledgeCategoryRepository;
+use App\Service\AuthService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
 
 #[Route('/knowledge')]
 class KnowledgeController extends AbstractController
 {
-    private string $jwtSecret;
+    private AuthService $authService;
 
-    public function __construct()
+    public function __construct(AuthService $authService)
     {
-        $this->jwtSecret = $_ENV['JWT_SECRET'] ?? 'your-secret-key';
-    }
-
-    private function getUserFromToken(Request $request, EntityManagerInterface $entityManager): ?User
-    {
-        $authHeader = $request->headers->get('Authorization');
-        
-        if (!$authHeader || !str_starts_with($authHeader, 'Bearer ')) {
-            return null;
-        }
-
-        $token = substr($authHeader, 7);
-
-        try {
-            $decoded = JWT::decode($token, new Key($this->jwtSecret, 'HS256'));
-            
-            return $entityManager->getRepository(User::class)->find($decoded->user_id);
-        } catch (\Exception $e) {
-            return null;
-        }
+        $this->authService = $authService;
     }
 
     #[Route('/search', name: 'knowledge_search', methods: ['GET'])]
-    public function search(Request $request, KnowledgeRepository $knowledgeRepository, EntityManagerInterface $entityManager): JsonResponse
+    public function search(Request $request, KnowledgeRepository $knowledgeRepository): JsonResponse
     {
-        $user = $this->getUserFromToken($request, $entityManager);
-        if (!$user) {
+        try {
+            $user = $this->authService->requireAuth($request);
+        } catch (\Exception $e) {
             return new JsonResponse(['error' => 'Token inválido'], 401);
         }
 
@@ -82,10 +63,11 @@ class KnowledgeController extends AbstractController
     }
 
     #[Route('/categories', name: 'knowledge_categories', methods: ['GET'])]
-    public function getCategories(Request $request, KnowledgeCategoryRepository $categoryRepository, EntityManagerInterface $entityManager): JsonResponse
+    public function getCategories(Request $request, KnowledgeCategoryRepository $categoryRepository): JsonResponse
     {
-        $user = $this->getUserFromToken($request, $entityManager);
-        if (!$user) {
+        try {
+            $user = $this->authService->requireAuth($request);
+        } catch (\Exception $e) {
             return new JsonResponse(['error' => 'Token inválido'], 401);
         }
 
@@ -110,11 +92,11 @@ class KnowledgeController extends AbstractController
         Request $request, 
         string $categoryId, 
         KnowledgeRepository $knowledgeRepository,
-        KnowledgeCategoryRepository $categoryRepository,
-        EntityManagerInterface $entityManager
+        KnowledgeCategoryRepository $categoryRepository
     ): JsonResponse {
-        $user = $this->getUserFromToken($request, $entityManager);
-        if (!$user) {
+        try {
+            $user = $this->authService->requireAuth($request);
+        } catch (\Exception $e) {
             return new JsonResponse(['error' => 'Token inválido'], 401);
         }
 
@@ -153,8 +135,9 @@ class KnowledgeController extends AbstractController
         KnowledgeRepository $knowledgeRepository,
         EntityManagerInterface $entityManager
     ): JsonResponse {
-        $user = $this->getUserFromToken($request, $entityManager);
-        if (!$user) {
+        try {
+            $user = $this->authService->requireAuth($request);
+        } catch (\Exception $e) {
             return new JsonResponse(['error' => 'Token inválido'], 401);
         }
 

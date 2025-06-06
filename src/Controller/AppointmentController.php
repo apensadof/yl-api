@@ -5,48 +5,29 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Entity\Appointment;
 use App\Repository\AppointmentRepository;
+use App\Service\AuthService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
 
 #[Route('/appointments')]
 class AppointmentController extends AbstractController
 {
-    private string $jwtSecret;
+    private AuthService $authService;
 
-    public function __construct()
+    public function __construct(AuthService $authService)
     {
-        $this->jwtSecret = $_ENV['JWT_SECRET'] ?? 'your-secret-key';
-    }
-
-    private function getUserFromToken(Request $request, EntityManagerInterface $entityManager): ?User
-    {
-        $authHeader = $request->headers->get('Authorization');
-        
-        if (!$authHeader || !str_starts_with($authHeader, 'Bearer ')) {
-            return null;
-        }
-
-        $token = substr($authHeader, 7);
-
-        try {
-            $decoded = JWT::decode($token, new Key($this->jwtSecret, 'HS256'));
-            
-            return $entityManager->getRepository(User::class)->find($decoded->user_id);
-        } catch (\Exception $e) {
-            return null;
-        }
+        $this->authService = $authService;
     }
 
     #[Route('/today', name: 'appointments_today', methods: ['GET'])]
-    public function getTodayAppointments(Request $request, AppointmentRepository $appointmentRepository, EntityManagerInterface $entityManager): JsonResponse
+    public function getTodayAppointments(Request $request, AppointmentRepository $appointmentRepository): JsonResponse
     {
-        $user = $this->getUserFromToken($request, $entityManager);
-        if (!$user) {
+        try {
+            $user = $this->authService->requireAuth($request);
+        } catch (\Exception $e) {
             return new JsonResponse(['error' => 'Token inválido'], 401);
         }
 
@@ -63,8 +44,9 @@ class AppointmentController extends AbstractController
     #[Route('', name: 'appointments_create', methods: ['POST'])]
     public function createAppointment(Request $request, EntityManagerInterface $entityManager): JsonResponse
     {
-        $user = $this->getUserFromToken($request, $entityManager);
-        if (!$user) {
+        try {
+            $user = $this->authService->requireAuth($request);
+        } catch (\Exception $e) {
             return new JsonResponse(['error' => 'Token inválido'], 401);
         }
 
@@ -137,8 +119,9 @@ class AppointmentController extends AbstractController
     #[Route('/{id}', name: 'appointments_update', methods: ['PUT'])]
     public function updateAppointment(Request $request, int $id, EntityManagerInterface $entityManager): JsonResponse
     {
-        $user = $this->getUserFromToken($request, $entityManager);
-        if (!$user) {
+        try {
+            $user = $this->authService->requireAuth($request);
+        } catch (\Exception $e) {
             return new JsonResponse(['error' => 'Token inválido'], 401);
         }
 
@@ -207,8 +190,9 @@ class AppointmentController extends AbstractController
     #[Route('/{id}', name: 'appointments_delete', methods: ['DELETE'])]
     public function deleteAppointment(Request $request, int $id, EntityManagerInterface $entityManager): JsonResponse
     {
-        $user = $this->getUserFromToken($request, $entityManager);
-        if (!$user) {
+        try {
+            $user = $this->authService->requireAuth($request);
+        } catch (\Exception $e) {
             return new JsonResponse(['error' => 'Token inválido'], 401);
         }
 
@@ -233,10 +217,11 @@ class AppointmentController extends AbstractController
     }
 
     #[Route('/calendar/{year}/{month}', name: 'appointments_calendar', methods: ['GET'])]
-    public function getMonthlyCalendar(Request $request, int $year, int $month, AppointmentRepository $appointmentRepository, EntityManagerInterface $entityManager): JsonResponse
+    public function getMonthlyCalendar(Request $request, int $year, int $month, AppointmentRepository $appointmentRepository): JsonResponse
     {
-        $user = $this->getUserFromToken($request, $entityManager);
-        if (!$user) {
+        try {
+            $user = $this->authService->requireAuth($request);
+        } catch (\Exception $e) {
             return new JsonResponse(['error' => 'Token inválido'], 401);
         }
 

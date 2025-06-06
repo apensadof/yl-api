@@ -6,9 +6,8 @@ use App\Entity\Ahijado;
 use App\Entity\User;
 use App\Repository\AhijadoRepository;
 use App\Repository\UserRepository;
+use App\Service\AuthService;
 use Doctrine\ORM\EntityManagerInterface;
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,27 +20,28 @@ class AhijadoController extends AbstractController
     private $ahijadoRepository;
     private $userRepository;
     private $validator;
-    private string $jwtSecret;
+    private $authService;
 
     public function __construct(
         EntityManagerInterface $entityManager,
         AhijadoRepository $ahijadoRepository,
         UserRepository $userRepository,
-        ValidatorInterface $validator
+        ValidatorInterface $validator,
+        AuthService $authService
     ) {
         $this->entityManager = $entityManager;
         $this->ahijadoRepository = $ahijadoRepository;
         $this->userRepository = $userRepository;
         $this->validator = $validator;
-        $this->jwtSecret = $_ENV['JWT_SECRET'] ?? 'your-secret-key';
+        $this->authService = $authService;
     }
 
     #[Route('/ahijados', name: 'ahijados_list', methods: ['GET'])]
     public function getAhijados(Request $request): JsonResponse
     {
-        $user = $this->getUserFromToken($request);
-        
-        if (!$user) {
+        try {
+            $user = $this->authService->requireAuth($request);
+        } catch (\Exception $e) {
             return $this->json(['error' => 'No autorizado'], 401);
         }
 
@@ -53,9 +53,9 @@ class AhijadoController extends AbstractController
     #[Route('/ahijados', name: 'ahijados_create', methods: ['POST'])]
     public function createAhijado(Request $request): JsonResponse
     {
-        $user = $this->getUserFromToken($request);
-        
-        if (!$user) {
+        try {
+            $user = $this->authService->requireAuth($request);
+        } catch (\Exception $e) {
             return $this->json(['error' => 'No autorizado'], 401);
         }
 
@@ -106,9 +106,9 @@ class AhijadoController extends AbstractController
     #[Route('/ahijados/search', name: 'ahijados_search', methods: ['GET'])]
     public function searchAhijados(Request $request): JsonResponse
     {
-        $user = $this->getUserFromToken($request);
-        
-        if (!$user) {
+        try {
+            $user = $this->authService->requireAuth($request);
+        } catch (\Exception $e) {
             return $this->json(['error' => 'No autorizado'], 401);
         }
 
@@ -139,24 +139,6 @@ class AhijadoController extends AbstractController
     public function searchGodchildren(Request $request): JsonResponse
     {
         return $this->searchAhijados($request);
-    }
-
-    private function getUserFromToken(Request $request): ?User
-    {
-        $authHeader = $request->headers->get('Authorization');
-        
-        if (!$authHeader || !str_starts_with($authHeader, 'Bearer ')) {
-            return null;
-        }
-
-        $token = substr($authHeader, 7);
-
-        try {
-            $decoded = JWT::decode($token, new Key($this->jwtSecret, 'HS256'));
-            return $this->userRepository->findOneBy(['uuid' => $decoded->user_uuid]);
-        } catch (\Exception $e) {
-            return null;
-        }
     }
 
     private function validateAhijadoData(array $data): bool

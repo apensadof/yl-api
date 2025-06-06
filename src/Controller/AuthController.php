@@ -7,9 +7,8 @@ use App\Entity\PasswordResetToken;
 use App\Repository\UserRepository;
 use App\Repository\PasswordResetTokenRepository;
 use App\Service\EmailService;
+use App\Service\AuthService;
 use Doctrine\ORM\EntityManagerInterface;
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,21 +23,22 @@ class AuthController extends AbstractController
     private $passwordHasher;
     private $passwordResetTokenRepository;
     private $emailService;
-    private string $jwtSecret;
+    private $authService;
 
     public function __construct(
         EntityManagerInterface $entityManager,
         UserRepository $userRepository,
         UserPasswordHasherInterface $passwordHasher,
         PasswordResetTokenRepository $passwordResetTokenRepository,
-        EmailService $emailService
+        EmailService $emailService,
+        AuthService $authService
     ) {
         $this->entityManager = $entityManager;
         $this->userRepository = $userRepository;
         $this->passwordHasher = $passwordHasher;
         $this->passwordResetTokenRepository = $passwordResetTokenRepository;
         $this->emailService = $emailService;
-        $this->jwtSecret = $_ENV['JWT_SECRET'] ?? 'your-secret-key';
+        $this->authService = $authService;
     }
 
     #[Route('/login', name: 'login', methods: ['POST'])]
@@ -60,14 +60,7 @@ class AuthController extends AbstractController
             ], 401);
         }
 
-        $payload = [
-            'user_uuid' => $user->getUuid(),
-            'email' => $user->getEmail(),
-            'iat' => time(),
-            'exp' => time() + (24 * 60 * 60) // 24 hours
-        ];
-
-        $token = JWT::encode($payload, $this->jwtSecret, 'HS256');
+        $token = $this->authService->generateToken($user);
 
         return $this->json([
             'token' => $token,
@@ -78,28 +71,9 @@ class AuthController extends AbstractController
     #[Route('/verify', name: 'verify', methods: ['GET'])]
     public function verify(Request $request): JsonResponse
     {
-        $authHeader = $request->headers->get('Authorization');
-        
-        if (!$authHeader || !str_starts_with($authHeader, 'Bearer ')) {
-            return $this->json([
-                'error' => 'Token no proporcionado'
-            ], 401);
-        }
-
-        $token = substr($authHeader, 7);
-
         try {
-            $decoded = JWT::decode($token, new Key($this->jwtSecret, 'HS256'));
-            $user = $this->userRepository->findOneBy(['uuid' => $decoded->user_uuid]);
-
-            if (!$user) {
-                return $this->json([
-                    'error' => 'Usuario no encontrado'
-                ], 401);
-            }
-
+            $user = $this->authService->requireAuth($request);
             return $this->json($user->toArray());
-
         } catch (\Exception $e) {
             return $this->json([
                 'error' => 'Token inválido o expirado'
@@ -257,21 +231,5 @@ class AuthController extends AbstractController
         ]);
     }
 
-    private function getUserFromToken(Request $request): ?User
-    {
-        $authHeader = $request->headers->get('Authorization');
-        
-        if (!$authHeader || !str_starts_with($authHeader, 'Bearer ')) {
-            return null;
-        }
 
-        $token = substr($authHeader, 7);
-
-        try {
-            $decoded = JWT::decode($token, new Key($this->jwtSecret, 'HS256'));
-            return $this->userRepository->findOneBy(['uuid' => $decoded->user_uuid]);
-        } catch (\Exception $e) {
-            return null;
-        }
-    }
 } 
