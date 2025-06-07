@@ -29,6 +29,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 50)]
     private ?string $role = 'babalawo';
 
+    #[ORM\Column(length: 100, nullable: true)]
+    private ?string $spiritual_level = null;
+
+    #[ORM\Column(length: 20, nullable: true)]
+    private ?string $phone = null;
+
+    #[ORM\Column(length: 100, nullable: true)]
+    private ?string $city = null;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private ?string $notes = null;
+
+    #[ORM\Column(length: 20)]
+    private ?string $status = 'pending';
+
     #[ORM\Column(type: 'datetime')]
     private ?\DateTimeInterface $created_at = null;
 
@@ -116,6 +131,61 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function getSpiritualLevel(): ?string
+    {
+        return $this->spiritual_level;
+    }
+
+    public function setSpiritualLevel(?string $spiritual_level): self
+    {
+        $this->spiritual_level = $spiritual_level;
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?string $phone): self
+    {
+        $this->phone = $phone;
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(?string $city): self
+    {
+        $this->city = $city;
+        return $this;
+    }
+
+    public function getNotes(): ?string
+    {
+        return $this->notes;
+    }
+
+    public function setNotes(?string $notes): self
+    {
+        $this->notes = $notes;
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+        return $this;
+    }
+
     // UserInterface methods
     public function getUserIdentifier(): string
     {
@@ -160,6 +230,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             'name' => $this->name,
             'email' => $this->email,
             'role' => $this->role,
+            'spiritualLevel' => $this->spiritual_level,
+            'phone' => $this->phone,
+            'city' => $this->city,
+            'notes' => $this->notes,
+            'status' => $this->status,
             'createdAt' => $this->created_at?->format(\DateTime::ISO8601),
         ];
     }
