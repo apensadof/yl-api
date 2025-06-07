@@ -31,19 +31,25 @@ class AppointmentRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function findByMonthAndUser(int $year, int $month, User $user): array
+    public function findByMonthAndUser(int $year, int $month, User $user, ?string $type = null): array
     {
         $startDate = new \DateTime("{$year}-{$month}-01");
         $endDate = clone $startDate;
         $endDate->modify('last day of this month');
 
-        return $this->createQueryBuilder('a')
+        $qb = $this->createQueryBuilder('a')
             ->where('a.user = :user')
             ->andWhere('a.date BETWEEN :startDate AND :endDate')
             ->setParameter('user', $user)
             ->setParameter('startDate', $startDate->format('Y-m-d'))
-            ->setParameter('endDate', $endDate->format('Y-m-d'))
-            ->orderBy('a.date', 'ASC')
+            ->setParameter('endDate', $endDate->format('Y-m-d'));
+
+        if ($type) {
+            $qb->andWhere('LOWER(a.type) = :type')
+               ->setParameter('type', strtolower($type));
+        }
+
+        return $qb->orderBy('a.date', 'ASC')
             ->addOrderBy('a.time', 'ASC')
             ->getQuery()
             ->getResult();
@@ -141,5 +147,17 @@ class AppointmentRepository extends ServiceEntityRepository
         }
 
         return $conflicts;
+    }
+
+    public function findByDateAndUser(\DateTime $date, User $user): array
+    {
+        return $this->createQueryBuilder('a')
+            ->where('a.user = :user')
+            ->andWhere('a.date = :date')
+            ->setParameter('user', $user)
+            ->setParameter('date', $date->format('Y-m-d'))
+            ->orderBy('a.time', 'ASC')
+            ->getQuery()
+            ->getResult();
     }
 } 

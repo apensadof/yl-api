@@ -20,6 +20,9 @@ class Appointment
     #[ORM\Column(length: 100)]
     private string $type;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $title = null;
+
     #[ORM\Column(type: 'date')]
     private \DateTimeInterface $date;
 
@@ -74,8 +77,39 @@ class Appointment
 
     public function setType(string $type): static
     {
+        $allowedTypes = ['consulta', 'ebbo', 'iniciacion', 'limpieza', 'ceremonia', 'Consulta de Ifá', 'Consulta Rápida', 'Limpieza Espiritual'];
+        // Allow backwards compatibility with existing types
         $this->type = $type;
         return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(?string $title): static
+    {
+        $this->title = $title;
+        return $this;
+    }
+
+    public function getGeneratedTitle(): string
+    {
+        if ($this->title) {
+            return $this->title;
+        }
+        
+        $typeNames = [
+            'consulta' => 'Consulta de Ifá',
+            'ebbo' => 'Ebbó',
+            'iniciacion' => 'Iniciación',
+            'limpieza' => 'Limpieza Espiritual',
+            'ceremonia' => 'Ceremonia'
+        ];
+        
+        $typeName = $typeNames[strtolower($this->type)] ?? $this->type;
+        return $typeName . ' - ' . $this->clientName;
     }
 
     public function getDate(): \DateTimeInterface
@@ -193,6 +227,7 @@ class Appointment
     {
         return [
             'id' => $this->id,
+            'title' => $this->getGeneratedTitle(),
             'clientName' => $this->clientName,
             'type' => $this->type,
             'date' => $this->date->format('Y-m-d'),
