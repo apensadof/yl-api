@@ -54,7 +54,7 @@ class AdminController extends AbstractController
     }
 
     #[Route('/users/{uuid}/approve', name: 'admin_user_approve', methods: ['POST'])]
-    public function approveUser(Request $request, string $uid): JsonResponse
+    public function approveUser(Request $request, string $uuid): JsonResponse
     {
         try {
             $currentUser = $this->authService->requireAuth($request);
@@ -66,7 +66,7 @@ class AdminController extends AbstractController
             return new JsonResponse(['error' => 'No autorizado'], 403);
         }
 
-        $user = $this->userRepository->findByUuid($uid);
+        $user = $this->userRepository->findByUuid($uuid);
         if (!$user) {
             return new JsonResponse(['error' => 'Usuario no encontrado'], 404);
         }
@@ -87,7 +87,7 @@ class AdminController extends AbstractController
     }
 
     #[Route('/users/{uuid}/reject', name: 'admin_user_reject', methods: ['POST'])]
-    public function rejectUser(Request $request, string $uid): JsonResponse
+    public function rejectUser(Request $request, string $uuid): JsonResponse
     {
         try {
             $currentUser = $this->authService->requireAuth($request);
@@ -99,7 +99,7 @@ class AdminController extends AbstractController
             return new JsonResponse(['error' => 'No autorizado'], 403);
         }
 
-        $user = $this->userRepository->findByUuid($uid);
+        $user = $this->userRepository->findByUuid($uuid);
         if (!$user) {
             return new JsonResponse(['error' => 'Usuario no encontrado'], 404);
         }
