@@ -66,7 +66,7 @@ class AdminController extends AbstractController
             return new JsonResponse(['error' => 'No autorizado'], 403);
         }
 
-        $user = $this->userRepository->findByUuid($uuid);
+        $user = $this->userRepository->findBy(['uuid' => $uuid]);
         if (!$user) {
             return new JsonResponse(['error' => 'Usuario no encontrado'], 404);
         }
@@ -99,7 +99,7 @@ class AdminController extends AbstractController
             return new JsonResponse(['error' => 'No autorizado'], 403);
         }
 
-        $user = $this->userRepository->findByUuid($uuid);
+        $user = $this->userRepository->findBy(['uuid' => $uuid]);
         if (!$user) {
             return new JsonResponse(['error' => 'Usuario no encontrado'], 404);
         }
