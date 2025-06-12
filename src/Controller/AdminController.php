@@ -171,8 +171,8 @@ class AdminController extends AbstractController
         ]);
     }
 
-    #[Route('/users/{id}/suspend', name: 'admin_user_suspend', methods: ['POST'])]
-    public function suspendUser(Request $request, int $id): JsonResponse
+    #[Route('/users/{uuid}/suspend', name: 'admin_user_suspend', methods: ['POST'])]
+    public function suspendUser(Request $request, string $uuid): JsonResponse
     {
         try {
             $currentUser = $this->authService->requireAuth($request);
@@ -184,7 +184,7 @@ class AdminController extends AbstractController
             return new JsonResponse(['error' => 'No autorizado'], 403);
         }
 
-        $user = $this->userRepository->find($id);
+        $user = $this->userRepository->findOneByUuid(['uuid' => $uuid]);
         if (!$user) {
             return new JsonResponse(['error' => 'Usuario no encontrado'], 404);
         }
@@ -210,8 +210,8 @@ class AdminController extends AbstractController
         ]);
     }
 
-    #[Route('/users/{id}/reactivate', name: 'admin_user_reactivate', methods: ['POST'])]
-    public function reactivateUser(Request $request, int $id): JsonResponse
+    #[Route('/users/{uuid}/reactivate', name: 'admin_user_reactivate', methods: ['POST'])]
+    public function reactivateUser(Request $request, string $uuid): JsonResponse
     {
         try {
             $currentUser = $this->authService->requireAuth($request);
@@ -223,7 +223,7 @@ class AdminController extends AbstractController
             return new JsonResponse(['error' => 'No autorizado'], 403);
         }
 
-        $user = $this->userRepository->find($id);
+        $user = $this->userRepository->findOneByUuid(['uuid' => $uuid]);
         if (!$user) {
             return new JsonResponse(['error' => 'Usuario no encontrado'], 404);
         }
