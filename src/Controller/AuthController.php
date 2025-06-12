@@ -135,7 +135,7 @@ class AuthController extends AbstractController
         }
 
         // Check if user is approved
-        if ($user->getStatus() !== 'approved') {
+        if (!$user->isAdmin() && $user->getStatus() !== 'approved') {
             $statusMessages = [
                 'pending' => 'Tu cuenta está pendiente de aprobación por el administrador',
                 'suspended' => 'Tu cuenta ha sido suspendida. Contacta al administrador',

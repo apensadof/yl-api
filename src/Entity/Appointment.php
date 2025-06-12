@@ -48,6 +48,10 @@ class Appointment
     #[ORM\JoinColumn(name: 'user_id', referencedColumnName: 'id', nullable: false)]
     private User $user;
 
+    #[ORM\ManyToOne(targetEntity: Ahijado::class)]
+    #[ORM\JoinColumn(name: 'client_id', referencedColumnName: 'id', nullable: true, onDelete: 'SET NULL')]
+    private ?Ahijado $client = null;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -203,6 +207,22 @@ class Appointment
         return $this;
     }
 
+    public function getClient(): ?Ahijado
+    {
+        return $this->client;
+    }
+
+    public function setClient(?Ahijado $client): static
+    {
+        $this->client = $client;
+        return $this;
+    }
+
+    public function getClientId(): ?int
+    {
+        return $this->client?->getId();
+    }
+
     #[ORM\PreUpdate]
     public function preUpdate(): void
     {
@@ -229,6 +249,7 @@ class Appointment
             'id' => $this->id,
             'title' => $this->getGeneratedTitle(),
             'clientName' => $this->clientName,
+            'clientId' => $this->getClientId(),
             'type' => $this->type,
             'date' => $this->date->format('Y-m-d'),
             'time' => $this->time->format('H:i'),

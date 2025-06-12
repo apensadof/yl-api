@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Entity\Appointment;
+use App\Entity\Ahijado;
 use App\Repository\AppointmentRepository;
 use App\Service\AuthService;
 use Doctrine\ORM\EntityManagerInterface;
@@ -20,6 +21,25 @@ class AppointmentController extends AbstractController
     public function __construct(AuthService $authService)
     {
         $this->authService = $authService;
+    }
+
+    private function validateAndGetAhijado(?int $clientId, User $user, EntityManagerInterface $entityManager): ?Ahijado
+    {
+        if (!$clientId) {
+            return null;
+        }
+
+        $ahijado = $entityManager->getRepository(Ahijado::class)->find($clientId);
+        
+        if (!$ahijado) {
+            throw new \InvalidArgumentException('El ahijado especificado no existe');
+        }
+
+        if ($ahijado->getUser()->getId() !== $user->getId()) {
+            throw new \InvalidArgumentException('No tienes permisos para acceder a este ahijado');
+        }
+
+        return $ahijado;
     }
 
     #[Route('/today', name: 'appointments_today', methods: ['GET'])]
@@ -75,6 +95,16 @@ class AppointmentController extends AbstractController
         }
 
         try {
+            // Validate ahijado if clientId is provided
+            $client = null;
+            if (isset($data['clientId'])) {
+                try {
+                    $client = $this->validateAndGetAhijado($data['clientId'], $user, $entityManager);
+                } catch (\InvalidArgumentException $e) {
+                    return new JsonResponse(['error' => $e->getMessage()], 400);
+                }
+            }
+
             $appointment = new Appointment();
             $appointment->setUser($user);
             $appointment->setClientName($data['clientName']);
@@ -83,6 +113,9 @@ class AppointmentController extends AbstractController
             $appointment->setTime(new \DateTime($data['time']));
             $appointment->setDuration((int)$data['duration']);
             
+            if ($client) {
+                $appointment->setClient($client);
+            }
             if (isset($data['title'])) {
                 $appointment->setTitle($data['title']);
             }
@@ -140,6 +173,19 @@ class AppointmentController extends AbstractController
         $data = json_decode($request->getContent(), true);
 
         try {
+            // Validate ahijado if clientId is provided
+            if (isset($data['clientId'])) {
+                try {
+                    $client = $this->validateAndGetAhijado($data['clientId'], $user, $entityManager);
+                    $appointment->setClient($client);
+                } catch (\InvalidArgumentException $e) {
+                    return new JsonResponse(['error' => $e->getMessage()], 400);
+                }
+            } elseif (array_key_exists('clientId', $data) && $data['clientId'] === null) {
+                // Explicitly set to null if clientId is passed as null
+                $appointment->setClient(null);
+            }
+
             if (isset($data['clientName'])) {
                 $appointment->setClientName($data['clientName']);
             }
@@ -339,6 +385,16 @@ class AppointmentController extends AbstractController
         }
 
         try {
+            // Validate ahijado if clientId is provided
+            $client = null;
+            if (isset($data['clientId'])) {
+                try {
+                    $client = $this->validateAndGetAhijado($data['clientId'], $user, $entityManager);
+                } catch (\InvalidArgumentException $e) {
+                    return new JsonResponse(['error' => $e->getMessage()], 400);
+                }
+            }
+
             $appointment = new Appointment();
             $appointment->setUser($user);
             $appointment->setClientName($data['clientName']);
@@ -347,6 +403,9 @@ class AppointmentController extends AbstractController
             $appointment->setTime(new \DateTime($data['time']));
             $appointment->setDuration((int)$data['duration']);
             
+            if ($client) {
+                $appointment->setClient($client);
+            }
             if (isset($data['title'])) {
                 $appointment->setTitle($data['title']);
             }
@@ -479,5 +538,43 @@ class AppointmentController extends AbstractController
         return new JsonResponse([
             'appointmentTypes' => $appointmentTypes
         ]);
+    }
+
+    #[Route('/search-clients', name: 'appointments_search_clients', methods: ['GET'])]
+    public function searchClients(Request $request, EntityManagerInterface $entityManager): JsonResponse
+    {
+        try {
+            $user = $this->authService->requireAuth($request);
+        } catch (\Exception $e) {
+            return new JsonResponse(['error' => 'Token inválido'], 401);
+        }
+
+        $query = $request->query->get('q', '');
+        
+        if (strlen($query) < 2) {
+            return new JsonResponse(['clients' => []]);
+        }
+
+        $ahijadoRepository = $entityManager->getRepository(Ahijado::class);
+        $ahijados = $ahijadoRepository->createQueryBuilder('a')
+            ->where('a.user = :user')
+            ->andWhere('(LOWER(a.name) LIKE :query OR LOWER(a.email) LIKE :query OR a.phone LIKE :query)')
+            ->setParameter('user', $user)
+            ->setParameter('query', '%' . strtolower($query) . '%')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+
+        $clients = [];
+        foreach ($ahijados as $ahijado) {
+            $clients[] = [
+                'id' => $ahijado->getId(),
+                'name' => $ahijado->getName(),
+                'email' => $ahijado->getEmail(),
+                'phone' => $ahijado->getPhone()
+            ];
+        }
+
+        return new JsonResponse(['clients' => $clients]);
     }
 } 

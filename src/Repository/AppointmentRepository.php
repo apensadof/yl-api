@@ -38,6 +38,8 @@ class AppointmentRepository extends ServiceEntityRepository
         $endDate->modify('last day of this month');
 
         $qb = $this->createQueryBuilder('a')
+            ->leftJoin('a.client', 'ah')
+            ->addSelect('ah')
             ->where('a.user = :user')
             ->andWhere('a.date BETWEEN :startDate AND :endDate')
             ->setParameter('user', $user)
@@ -152,6 +154,8 @@ class AppointmentRepository extends ServiceEntityRepository
     public function findByDateAndUser(\DateTime $date, User $user): array
     {
         return $this->createQueryBuilder('a')
+            ->leftJoin('a.client', 'ah')
+            ->addSelect('ah')
             ->where('a.user = :user')
             ->andWhere('a.date = :date')
             ->setParameter('user', $user)
