@@ -53,6 +53,27 @@ class AdminController extends AbstractController
         return new JsonResponse($result);
     }
 
+    #[Route('/users/{uuid}', name: 'admin_users_detail', methods: ['GET'])]
+    public function getUserDetail(Request $request, string $uuid): JsonResponse
+    {
+        try {
+            $user = $this->authService->requireAuth($request);
+        } catch (\Exception $e) {
+            return new JsonResponse(['error' => 'Token inválido'], 401);
+        }
+
+        if (!in_array($user->getRole(), ['admin', 'babalawo'])) {
+            return new JsonResponse(['error' => 'No autorizado'], 403);
+        }
+
+        $user = $this->userRepository->findOneByUuid(['uuid' => $uuid]);
+        if (!$user) {
+            return new JsonResponse(['error' => 'Usuario no encontrado'], 404);
+        }
+
+        return new JsonResponse($user->toArray());
+    }
+
     #[Route('/users/approved', name: 'admin_users_approved', methods: ['GET'])]
     public function getApprovedUsers(Request $request): JsonResponse
     {
